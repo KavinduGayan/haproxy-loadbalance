@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  haproxy:
+    image: haproxy:latest
+    container_name: my-haproxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
